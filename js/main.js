@@ -19,3 +19,15 @@ const findid=(id)=>{
   .catch(error=>console.log(error))
 }
 
+
+
+// Display 2 division start here
+const display2=d=>
+{
+  
+  if( (d.length)==0)
+  {
+     
+   const div1=document.getElementById('1');
+   div1.innerText=d.length;
+  }
