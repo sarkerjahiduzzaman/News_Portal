@@ -139,3 +139,21 @@ const showdDetails=(name,view,photos,rating,badge)=>{
 </div>
   `
 }
+
+
+
+const loadigFunction=isLoading =>{
+  const loder=document.getElementById('loader');
+  if(isLoading)
+  {
+    loder.classList.remove('d-none')
+  }
+  else
+  {
+    loder.classList.add('d-none')
+  }
+  
+}
+
+findid(08)
+
