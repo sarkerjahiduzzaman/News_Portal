@@ -9,6 +9,28 @@ const menuBarFunction=()=>{
 }
 // Api link handalink function end
 
+//  display Meubar
+
+const display1=(news)=>{
+  const ul=document.getElementById('div-container');
+  news.forEach(m => {
+  
+    
+    const li=document.createElement('li')
+   
+    li.innerHTML=`
+    <li class="nav-item m-1">
+          <a onclick="findid(${m.category_id})" class="nav-link" href="#">${m.category_name}</a>
+        </li>
+
+    `
+    ul.appendChild(li)
+    
+  });
+
+}
+// display menubar end
+
 menuBarFunction()
 //News find by id start here
 const findid=(id)=>{
@@ -18,8 +40,6 @@ const findid=(id)=>{
   .then(data=>display2(data.data))
   .catch(error=>console.log(error))
 }
-
-
 
 // Display 2 division start here
 const display2=d=>
@@ -44,70 +64,70 @@ const display2=d=>
   
  d.sort( compare );
 
+
 //  shorting algorithm end here
 
-const div=document.getElementById('divmenu')
-div.innerHTML=``
-d.forEach(news => {
-  
-  const div1=document.getElementById('1');
-  div1.innerText=d.length;
-  const divp=document.createElement('div')
-  
-  
-  divp.innerHTML=`
- 
-  <div class="card mb-3" >
-  <div class="row g-0">
-    <div class="col-md-3">
-      <img src=${news.thumbnail_url} class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col-md-9">
-      <div class="card-body">
-        <h5 class="card-title">${news.title}</h5>
-        <p class="card-text">${news.details.length>500 ?news.details.slice(0,600)+ '....': news.details }</p>
-       
+
+  const div=document.getElementById('divmenu')
+  div.innerHTML=``
+  d.forEach(news => {
+    
+    const div1=document.getElementById('1');
+    div1.innerText=d.length;
+    const divp=document.createElement('div')
+    
+    
+    divp.innerHTML=`
+   
+    <div class="card mb-3" >
+    <div class="row g-0">
+      <div class="col-md-3">
+        <img src=${news.thumbnail_url} class="img-fluid rounded-start" alt="...">
       </div>
-      <div class="d-flex justify-content-between ">
-        
-        <div class="d-flex ">
-        <div><img src=${news.image_url}alt=""
-         class="rounded-circle d-inline"
-         height="40px"
-         width="40px">
-       <p class="d-inline">${news.author.name}
-       <br> ${news.author.published_date}<p>
-        </div>
-     </div>
-        <div><i class="fa fa-eye" ><span>${news.total_view}</span></i>
-        </div>
-        <div>
-         <i class="fa-regular fa-star-half-stroke"></i>
-         <i class="fa-regular fa-star"></i>
-         <i class="fa-regular fa-star"></i>
-         <i class="fa-regular fa-star"></i>
-       </div>
-       <div>
-        
-       <button onclick="showdDetails('${news.author.name}','${news.total_view}','${news.thumbnail_url}','${news.rating.number}','${news.rating.badge}')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-       <i class="fa-sharp fa-solid fa-arrow-right"></i>
-     </button>
+      <div class="col-md-9">
+        <div class="card-body">
+          <h5 class="card-title">${news.title}</h5>
+          <p class="card-text">${news.details.length>500 ?news.details.slice(0,600)+ '....': news.details }</p>
          
+        </div>
+        <div class="d-flex justify-content-between ">
+          
+          <div class="d-flex ">
+          <div><img src=${news.image_url}alt=""
+           class="rounded-circle d-inline"
+           height="40px"
+           width="40px">
+         <p class="d-inline">${news.author.name}
+         <br> ${news.author.published_date}<p>
+          </div>
+       </div>
+          <div><i class="fa fa-eye" ><span>${news.total_view}</span></i>
+          </div>
+          <div>
+           <i class="fa-regular fa-star-half-stroke"></i>
+           <i class="fa-regular fa-star"></i>
+           <i class="fa-regular fa-star"></i>
+           <i class="fa-regular fa-star"></i>
+         </div>
+         <div>
+        
+         <button onclick="showdDetails('${news.author.name}','${news.total_view}','${news.thumbnail_url}','${news.rating.number}','${news.rating.badge}')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+         <i class="fa-sharp fa-solid fa-arrow-right"></i>
+       </button>
+           
+         </div>
        </div>
      </div>
-   </div>
 
+    </div>
   </div>
-</div>
-
-  ` 
-  div.appendChild(divp)
-
-});
-loadigFunction(false)
+  
+    ` 
+    div.appendChild(divp)
+ 
+  });
+  loadigFunction(false)
 }
-
-       
 const showdDetails=(name,view,photos,rating,badge)=>{
   if(name==''||name=='null')
   {
@@ -139,9 +159,6 @@ const showdDetails=(name,view,photos,rating,badge)=>{
 </div>
   `
 }
-
-
-
 const loadigFunction=isLoading =>{
   const loder=document.getElementById('loader');
   if(isLoading)
@@ -156,4 +173,3 @@ const loadigFunction=isLoading =>{
 }
 
 findid(08)
-
