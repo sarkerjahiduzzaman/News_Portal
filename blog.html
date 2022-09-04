@@ -64,6 +64,51 @@
   <!-- Container wrapper -->
 </nav>
 <!-- Navbar -->
+<!-- card section -->
+<main class="container mt-5">
+  <section class="container">
+      <div class="row">
+          <div class="col-sm-6 mt-5">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Difference between var, let and const</h5>
+                <ul>
+                  <li>
+                      var declarations are globally scoped or function scoped while let and const are block scoped.
+                  </li>
+                  <li>
+                      var variables can be updated and re-declared within its scope; let variables can be updated but not re-declared; const variables can neither be updated nor re-declared.
+                  </li>
+                  <li>
+                      They are all hoisted to the top of their scope. But while var variables are initialized with undefined, let and const variables are not initialized.
+                  </li>
+                  <li>
+                      While var and let can be declared without being initialized, const must be initialized during declaration.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 mt-5">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Difference between arrow function and normal function</h5>
+                <p class="card-text">Unlike regular functions, arrow functions do not have their own this . The value of this inside an arrow function remains the same throughout the lifecycle of the function and is always bound to the value of this in the closest non-arrow parent function.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 mt-5">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Why should we use template string</h5>
+                <p class="card-text">Template strings are a powerful feature of modern JavaScript released in ES6. It lets us insert/interpolate variables and expressions into strings without needing to concatenate like in older versions of JavaScript. It allows us to create strings that are complex and contain dynamic elements.</p>
+              </div>
+            </div>
+          </div>
+      </div>
+  </section>
+</main>
+
 
    
 </body>
