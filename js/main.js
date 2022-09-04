@@ -88,3 +88,54 @@ d.forEach(news => {
          <i class="fa-regular fa-star"></i>
        </div>
        <div>
+        
+       <button onclick="showdDetails('${news.author.name}','${news.total_view}','${news.thumbnail_url}','${news.rating.number}','${news.rating.badge}')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+       <i class="fa-sharp fa-solid fa-arrow-right"></i>
+     </button>
+         
+       </div>
+     </div>
+   </div>
+
+  </div>
+</div>
+
+  ` 
+  div.appendChild(divp)
+
+});
+loadigFunction(false)
+}
+
+       
+const showdDetails=(name,view,photos,rating,badge)=>{
+  if(name==''||name=='null')
+  {
+    name='NO data available'
+  }
+  if(view==''||view=="null")
+  {
+    view='no views'
+  }
+  const modeldiv=document.getElementById('modelid')
+  
+  modeldiv.innerHTML=`
+  
+  <div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Author:${name}</h5>
+    <h5>View:${view}
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  </div>
+  <div class="modal-body >
+ 
+  <h5 class="d-inline">Rating is: ${rating}</h5>
+  <h5 class="d-inline me-2">Badge is: ${badge}</h5>
+
+  
+  <img src= ${photos}class="img-fluid rounded-start" alt="...">
+
+  </div>
+</div>
+  `
+}
